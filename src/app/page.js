@@ -29,7 +29,7 @@ const carouselfunc=()=>{
        <div id='headbanner' onClick={()=>{carouselfunc()}} className=' bg-slate-500 flex w-full overflow-x-hidden justify-center   flex-nowrap h-[20vw]'>
         <div className=' flex w-full flex-nowrap transition-all  brightness-75   '  style={{transform:`translateX(-${carousel * 100}%)`}}>
             <div id='imgcontainer' className='min-w-full h-full  relative flex  bg-violet-400'>
-                <Image src="@/mei1.jpg" fill className=' object-cover'/>
+                <Image src="public/mei1.jpg" fill className=' object-cover'/>
                 </div>
             <div id='imgcontainer' className='min-w-full h-full  relative flex  bg-violet-400'>
                 <Image src="@/mei2.jpg" fill className=' object-cover'/>
