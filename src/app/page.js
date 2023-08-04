@@ -29,16 +29,16 @@ const carouselfunc=()=>{
        <div id='headbanner' onClick={()=>{carouselfunc()}} className=' bg-slate-500 flex w-full overflow-x-hidden justify-center   flex-nowrap h-[20vw]'>
         <div className=' flex w-full flex-nowrap transition-all  brightness-75   '  style={{transform:`translateX(-${carousel * 100}%)`}}>
             <div id='imgcontainer' className='min-w-full h-full  relative flex  bg-violet-400'>
-                <Image src="/mei1.jpg" fill className=' object-cover'/>
+                <Image src="@/mei1.jpg" fill className=' object-cover'/>
                 </div>
             <div id='imgcontainer' className='min-w-full h-full  relative flex  bg-violet-400'>
-                <Image src="/mei2.jpg" fill className=' object-cover'/>
+                <Image src="@/mei2.jpg" fill className=' object-cover'/>
                 </div>  
             <div id='imgcontainer' className='min-w-full h-full  relative flex  bg-violet-400'>
-                <Image src="/mei3.jpg" fill className=' object-cover'/>
+                <Image src="@/mei3.jpg" fill className=' object-cover'/>
                 </div>  
             <div id='imgcontainer' className='min-w-full h-full  relative flex  bg-violet-400'>
-                <Image src="/mei4.jpg" fill className=' object-cover'/>
+                <Image src="@/mei4.jpg" fill className=' object-cover'/>
                 </div>  
         </div>
         <h1 className='z-10 absolute top-7 text-xl sm:top-14 sm:text-2xl md:top-16 md:text-4xl lg:top-18 lg:text-5xl lg:top-16 xl:text-6xl xl:top-20 2xl:text-7xl 2xl:top-20 drop-shadow  text-white '>
