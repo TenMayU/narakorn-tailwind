@@ -1,91 +1,63 @@
+"use client"
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
+import { useEffect, useState } from 'react'
+import Listbanner from '@/component/listbanner/Listbanner'
+import Gallery from '@/component/gallery/Gallery'
+import Imgmodal from '@/component/imagemodal/modal'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+const [carousel,setCarousel] = useState(0)
+useEffect(()=>{
+  const interval = setInterval(()=>{
+    carousel === 3 ?  setCarousel(0) : setCarousel(carousel + 1)
+  },5000)
+  return () => clearInterval(interval)
+},[carousel])
+const carouselfunc=()=>{
+  if(carousel < 3){
+    setCarousel(carousel + 1)
+  }else{
+    setCarousel(0)
+  }
+}
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className='w-full min-h-[100vh] flex-col flex items-center  '>
+       <div id='headbanner' onClick={()=>{carouselfunc()}} className=' bg-slate-500 flex w-full overflow-x-hidden justify-center   flex-nowrap h-[20vw]'>
+        <div className=' flex w-full flex-nowrap transition-all  brightness-75   '  style={{transform:`translateX(-${carousel * 100}%)`}}>
+            <div id='imgcontainer' className='min-w-full h-full  relative flex  bg-violet-400'>
+                <Image src="/mei1.jpg" fill className=' object-cover'/>
+                </div>
+            <div id='imgcontainer' className='min-w-full h-full  relative flex  bg-violet-400'>
+                <Image src="/mei2.jpg" fill className=' object-cover'/>
+                </div>  
+            <div id='imgcontainer' className='min-w-full h-full  relative flex  bg-violet-400'>
+                <Image src="/mei3.jpg" fill className=' object-cover'/>
+                </div>  
+            <div id='imgcontainer' className='min-w-full h-full  relative flex  bg-violet-400'>
+                <Image src="/mei4.jpg" fill className=' object-cover'/>
+                </div>  
         </div>
-      </div>
+        <h1 className='z-10 absolute top-7 text-xl sm:top-14 sm:text-2xl md:top-16 md:text-4xl lg:top-18 lg:text-5xl lg:top-16 xl:text-6xl xl:top-20 2xl:text-7xl 2xl:top-20 drop-shadow  text-white '>
+          จังหวัด กาฬสินธุ์
+          </h1>   
+       </div>
+       <section id="gallery" className=' mt-2 sm:mt-4 md:mt-8 lg:mt-16 xl:mt-32 2xl:mt-40 w-full h-fit flex flex-col items-center justify-center relative '>
+          <Gallery/>
+          <Imgmodal/>
+      </section>
+       <section id="explore" className=' mt-2 sm:mt-4 md:mt-8 lg:mt-16 xl:mt-32 2xl:mt-40 w-full flex flex-col items-center '>
+        <Listbanner/>
+      </section> 
+      <section id="location" className=' mt-2 sm:mt-4 md:mt-8 lg:mt-16 xl:mt-32 2xl:mt-40 w-full flex flex-col items-center '>
+          <div id="maps" className=''>
+               
+          </div>
+      </section>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
   )
 }
