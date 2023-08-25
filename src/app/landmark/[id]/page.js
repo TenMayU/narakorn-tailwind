@@ -5,7 +5,7 @@ import useSWR, { mutate } from 'swr'
 export default  function lanmark({params}){
   const fetcher = (...args) => fetch(...args).then((res)=>res.json())
   const {data, error, isLoading} = useSWR(
-    `/api/post?title=${params.id}`,
+    `/api/post/${params.id}`,
     fetcher
     )
     

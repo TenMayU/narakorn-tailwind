@@ -18,7 +18,7 @@ export default  function Listlandmark({params}){
     const title = params.id
     const fetcher = (...args) => fetch(...args).then((res)=>res.json())
     const {data, error, isLoading} = useSWR(
-      `/api/posts?location=${params.id}`,
+      `/api/posts/${params.id}`,
       fetcher
       )
    console.log(data)
