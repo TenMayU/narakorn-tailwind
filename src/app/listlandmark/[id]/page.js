@@ -1,7 +1,8 @@
-
+"use client"
 import Image from 'next/image'  
 import Link from 'next/link'
-async function getData(params){
+import useSWR, { mutate } from 'swr'
+/* async function getData(params){
     const res = await fetch(`http://localhost:3000/api/posts?location=${params}`,{
       cache:"no-store",
   
@@ -11,13 +12,16 @@ async function getData(params){
     }
   
     return res.json()
-  }
+  } */
 
-export default async function Listlandmark({params}){
+export default  function Listlandmark({params}){
     const title = params.id
-    
-    const datas = await getData(title)
-
+    const fetcher = (...args) => fetch(...args).then((res)=>res.json())
+    const {data, error, isLoading} = useSWR(
+      `/api/posts?location=${params.id}`,
+      fetcher
+      )
+   console.log(data)
     return(
         <div className=" container w-full h-fit flex flex-col gap-16">
               <div className=" flex justify-center w-full h-fit">
@@ -31,7 +35,7 @@ export default async function Listlandmark({params}){
               </h1>  
            </div>
            <div id="list" className=' w-full h-fit grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 justify-items-center gap-y-8  '>
-    {datas.map((data)=>{
+    {data?.map((data)=>{
         return(
             
                 <Link href={`/landmark/${data.id}`}>
