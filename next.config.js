@@ -3,7 +3,15 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  output: "export"
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'firebasestorage.googleapis.com',
+      },
+    ],
+  },
+  /* output: "export" */
 }
 
 module.exports = nextConfig

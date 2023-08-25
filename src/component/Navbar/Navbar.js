@@ -13,14 +13,14 @@ export default function Navbar(){
     }
     return(
         <>
-         <nav className=" bg-transparent fixed z-10 w-full min-h-[30px] h-[3vw] flex flex-row justify-between px-5 items-center" >
+         <nav className=" bg-transparent absolute z-10 w-full min-h-[30px] h-[3vw] flex flex-row justify-between px-5 items-center" >
             <Link href="/">
                 <h1 className="text-xl lg:text-2xl text-white">
               
                 </h1>
                 </Link>
              <ul className={`${navshow} `+"flex flex-col text-lg items-center z-10 gap-5 absolute w-full h-[100px] left-0 top-14  lg:flex-row lg:static lg:flex lg:h-fit lg:w-fit "}>
-                <Link href="/">
+                <Link href="/" className=" w-16 h-10 bg-green-400 flex justify-center items-center rounded-lg">
                     <h1 className="text-white">
                     Github
                     </h1>
