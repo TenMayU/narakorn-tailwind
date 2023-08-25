@@ -1,7 +1,7 @@
 import { db } from "@/firebase/config"
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { NextResponse } from "next/server"
-export async function GET(request) {
+export const GET = async (request)=> {
   const url = new URL(request.url)
   const location = url.searchParams.get("location")
   const tag = url.searchParams.get("tag")
