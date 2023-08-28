@@ -1,9 +1,9 @@
-"use client"
+
 import Image from 'next/image'  
 import Link from 'next/link'
 import useSWR, { mutate } from 'swr'
-/* async function getData(params){
-    const res = await fetch(`http://localhost:3000/api/posts?location=${params}`,{
+async function getData(params){
+    const res = await fetch(`https://narakorn-tailwind.vercel.app/api/posts/${params}`,{
       cache:"no-store",
   
     });
@@ -12,16 +12,17 @@ import useSWR, { mutate } from 'swr'
     }
   
     return res.json()
-  } */
+  }
 
-export default  function Listlandmark({params}){
+export default async  function Listlandmark({params}){
     const title = params.id
-    const fetcher = (...args) => fetch(...args).then((res)=>res.json())
+    const data = await getData(title)
+/*     const fetcher = (...args) => fetch(...args).then((res)=>res.json())
     const {data, error, isLoading} = useSWR(
       `/api/posts/${params.id}`,
       fetcher
-      )
-   console.log(data)
+      ) */
+/*    console.log(data) */
     return(
         <div className=" container w-full h-fit flex flex-col gap-16">
               <div className=" flex justify-center w-full h-fit">
