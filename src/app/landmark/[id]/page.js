@@ -31,13 +31,13 @@ setCarousel(e)
         <div className=' flex w-full flex-nowrap transition-all'  style={{transform:`translateX(-${carousel * 100}%)`}}>
 
              
-              <div id='imgcontainer' className='min-w-full h-full  relative flex  bg-violet-400'>
+              <div id='imgcontainer' className='min-w-full h-full  relative flex  '>
               <Image src={data?.image[0]} fill className=' object-cover'/>
               </div>
-              <div id='imgcontainer' className='min-w-full h-full  relative flex  bg-violet-400'>
+              <div id='imgcontainer' className='min-w-full h-full  relative flex  '>
               <Image src={data?.image[1]} fill className=' object-cover'/>
               </div>
-              <div id='imgcontainer' className='min-w-full h-full  relative flex  bg-violet-400'>
+              <div id='imgcontainer' className='min-w-full h-full  relative flex  '>
               <Image src={data?.image[2]} fill className=' object-cover'/>
               </div>
 

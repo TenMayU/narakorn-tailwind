@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         <ImgmodalProvider>
         <div className=' containerfuid min-h-[100vh] flex flex-col justify-between items-center mx-auto'>
         {children}
-        <Footer/>
+     {/*    <Footer/> */}
         </div>   
         </ImgmodalProvider>
         </body>
